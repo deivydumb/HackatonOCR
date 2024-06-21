@@ -1,0 +1,825 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Bdb Node.JS template manager",
+		"version": "1.0.0",
+		"description": "Bdb Node.JS template application on lambda deploy"
+	},
+	"servers": [
+		{
+			"url": "https://api.{endpoint}/{basePath}",
+			"description": "Endpoint description here",
+			"variables": {
+				"basePath": {
+					"default": "/my-context"
+				},
+				"endpoint": {
+					"default": "localhost:8001",
+					"enum": ["labdigbdbqacad.com", "labdigitalbdbstgcad.com", "labdigitalbdbcad.com"]
+				}
+			}
+		}
+	],
+	"paths": {
+		"/V1/Enterprise/customers": {
+			"get": {
+				"tags": ["customers"],
+				"summary": "Recurso que permite consultar clientes en QFlow.",
+				"description": "Recurso que permite consultar clientes en QFlow.",
+				"operationId": "getCustomers",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/X-RqUID"
+					},
+					{
+						"$ref": "#/components/parameters/X-CustIdentNum"
+					},
+					{
+						"$ref": "#/components/parameters/X-CustIdentType"
+					},
+					{
+						"$ref": "#/components/parameters/X-Name"
+					},
+					{
+						"$ref": "#/components/parameters/X-Channel"
+					},
+					{
+						"$ref": "#/components/parameters/X-IPAddr"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Consulta exitosa de un cliente por documento y tipo",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/customerResponse"
+								},
+								"examples": {
+									"success": {
+										"value": {
+											"status": 200,
+											"message": "Ok",
+											"data": {
+												"id": 22403,
+												"identification": "1016034547",
+												"documentType": "CC",
+												"firstName": "Steven",
+												"lastName": "Rodriguez",
+												"isActive": true,
+												"email": "stevenrod@gmail.com"
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Consulta con error técnico de un cliente por documento y tipo",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/generalError"
+								},
+								"examples": {
+									"generalError": {
+										"value": {
+											"status": 500,
+											"message": "Request failed with status code 404",
+											"data": "Error: Error exec URI: http://localhost:9001/customer/personal/1/12345 with params: [object Object]\n    at /Users/stevenrodriguez/Documents/banco/back/CAD/bbog-cad-shift-mngr/dist/application/services/fetch.service.js:33:23\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"x-amazon-apigateway-request-validator": "Validate body, query string parameters, and headers",
+				"x-amazon-apigateway-integration": {
+					"httpMethod": "POST",
+					"uri": "${lbda_appointment_shift_mngr}",
+					"responses": {
+						"default": {
+							"statusCode": "200"
+						}
+					},
+					"passthroughBehavior": "when_no_match",
+					"contentHandling": "CONVERT_TO_TEXT",
+					"type": "aws_proxy"
+				}
+			},
+			"options": {
+				"tags": ["customers"],
+				"responses": {
+					"200": {
+						"headers": {
+							"Access-Control-Allow-Origin": {
+								"schema": {
+									"type": "string",
+									"maxLength": 36,
+									"pattern": "(.*)?"
+								}
+							},
+							"Access-Control-Allow-Methods": {
+								"schema": {
+									"type": "string",
+									"maxLength": 36,
+									"pattern": "(.*)?"
+								}
+							},
+							"Access-Control-Allow-Headers": {
+								"schema": {
+									"type": "string",
+									"maxLength": 250,
+									"pattern": "(.*)?"
+								}
+							}
+						},
+						"description": "200 response"
+					},
+					"401": {
+						"description": "No content"
+					},
+					"default": {
+						"description": "No content"
+					}
+				},
+				"x-amazon-apigateway-request-validator": "Validate body, query string parameters, and headers",
+				"x-amazon-apigateway-integration": {
+					"responses": {
+						"default": {
+							"statusCode": "200",
+							"responseParameters": {
+								"method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+								"method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-RqUID,X-CustIdentType,X-CustIdentNum,X-Name,X-Channel,X-IPAddr'",
+								"method.response.header.Access-Control-Allow-Origin": "'*'"
+							}
+						}
+					},
+					"requestTemplates": {
+						"application/json": "{\"statusCode\": 200}"
+					},
+					"passthroughBehavior": "when_no_match",
+					"type": "mock"
+				}
+			}
+		},
+		"/V1/Enterprise/customers/products": {
+			"post": {
+				"tags": ["products"],
+				"summary": "",
+				"description": "",
+				"operationId": "getProduct",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/productsRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/X-CustIdentNum"
+					},
+					{
+						"$ref": "#/components/parameters/X-CustIdentType"
+					},
+					{
+						"$ref": "#/components/parameters/X-Name"
+					},
+					{
+						"$ref": "#/components/parameters/X-Channel"
+					},
+					{
+						"$ref": "#/components/parameters/X-IPAddr"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Consulta exitosa de un cliente por documento y tipo",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/customerResponse"
+								},
+								"examples": {
+									"success": {
+										"value": {
+											"status": 200,
+											"message": "Ok",
+											"data": {
+												"id": 22403,
+												"identification": "1016034547",
+												"documentType": "CC",
+												"firstName": "Steven",
+												"lastName": "Rodriguez",
+												"isActive": true,
+												"email": "stevenrod@gmail.com"
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Consulta con error técnico de un cliente por documento y tipo",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/generalError"
+								},
+								"examples": {
+									"generalError": {
+										"value": {
+											"status": 500,
+											"message": "Request failed with status code 404",
+											"data": "Error: Error exec URI: http://localhost:9001/customer/personal/1/12345 with params: [object Object]\n    at /Users/stevenrodriguez/Documents/banco/back/CAD/bbog-cad-shift-mngr/dist/application/services/fetch.service.js:33:23\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"x-amazon-apigateway-request-validator": "Validate body, query string parameters, and headers",
+				"x-amazon-apigateway-integration": {
+					"httpMethod": "POST",
+					"uri": "${lbda_appointment_shift_mngr}",
+					"responses": {
+						"default": {
+							"statusCode": "200"
+						}
+					},
+					"passthroughBehavior": "when_no_match",
+					"contentHandling": "CONVERT_TO_TEXT",
+					"type": "aws_proxy"
+				}
+			},
+			"options": {
+				"tags": ["customers"],
+				"responses": {
+					"200": {
+						"headers": {
+							"Access-Control-Allow-Origin": {
+								"schema": {
+									"type": "string",
+									"maxLength": 36,
+									"pattern": "(.*)?"
+								}
+							},
+							"Access-Control-Allow-Methods": {
+								"schema": {
+									"type": "string",
+									"maxLength": 36,
+									"pattern": "(.*)?"
+								}
+							},
+							"Access-Control-Allow-Headers": {
+								"schema": {
+									"type": "string",
+									"maxLength": 250,
+									"pattern": "(.*)?"
+								}
+							}
+						},
+						"description": "200 response"
+					},
+					"401": {
+						"description": "No content"
+					},
+					"default": {
+						"description": "No content"
+					}
+				},
+				"x-amazon-apigateway-request-validator": "Validate body, query string parameters, and headers",
+				"x-amazon-apigateway-integration": {
+					"responses": {
+						"default": {
+							"statusCode": "200",
+							"responseParameters": {
+								"method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+								"method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-RqUID,X-CustIdentType,X-CustIdentNum,X-Name,X-Channel,X-IPAddr'",
+								"method.response.header.Access-Control-Allow-Origin": "'*'"
+							}
+						}
+					},
+					"requestTemplates": {
+						"application/json": "{\"statusCode\": 200}"
+					},
+					"passthroughBehavior": "when_no_match",
+					"type": "mock"
+				}
+			}
+		}
+	},
+	"components": {
+		"responses": {
+			"Empty": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/empty"
+						}
+					}
+				},
+				"description": "Contenido vacío para esta solicitud"
+			},
+			"customerCancelAppointment": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/customerCancelAppointmentResponse"
+						}
+					}
+				},
+				"description": "Contenido vacío para esta solicitud"
+			},
+			"customerCancelShift": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/customerCancelShiftResponse"
+						}
+					}
+				},
+				"description": "Contenido vacío para esta solicitud"
+			},
+			"customerRescheduleAppointment": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/customerRescheduleAppointmentResponse"
+						}
+					}
+				},
+				"description": "Contenido vacío para esta solicitud"
+			}
+		},
+		"schemas": {
+			"empty": {
+				"description": "Respuesta vacía",
+				"type": "object",
+				"additionalProperties": false,
+				"example": {}
+			},
+			"customerId": {
+				"description": "Identificador de cliente de QFlow",
+				"maxLength": 16,
+				"type": "number",
+				"example": 41312,
+				"pattern": "(.*)?"
+			},
+			"identification": {
+				"description": "Número de identificación del cliente",
+				"maxLength": 16,
+				"type": "string",
+				"pattern": "(.*)?",
+				"example": "1016034547"
+			},
+			"documentType": {
+				"description": "Tipo de documento del cliente",
+				"type": "string",
+				"enum": ["CC", "CE", "TI", "NJ", "NI", "PA", "RC", "NE", "BC", "SESN", "PACC"],
+				"example": "CC"
+			},
+			"status": {
+				"format": "int64",
+				"description": "Código de respuesta",
+				"maximum": 900,
+				"minimum": 200,
+				"type": "integer"
+			},
+			"message": {
+				"description": "Código de respuesta del servidor",
+				"maxLength": 100,
+				"minLength": 0,
+				"pattern": "^(?!.*<[^>]+>).*",
+				"type": "string"
+			},
+			"customer": {
+				"additionalProperties": false,
+				"properties": {
+					"customerId": {
+						"$ref": "#/components/schemas/customerId"
+					},
+					"identification": {
+						"$ref": "#/components/schemas/identification"
+					},
+					"documentType": {
+						"$ref": "#/components/schemas/documentType"
+					},
+					"firstName": {
+						"description": "Primer nombre del cliente",
+						"maxLength": 64,
+						"type": "string",
+						"pattern": "(.*)?",
+						"example": "Steven"
+					},
+					"lastName": {
+						"description": "Apellido del cliente",
+						"maxLength": 64,
+						"type": "string",
+						"pattern": "(.*)?",
+						"example": "Rodriguez"
+					},
+					"email": {
+						"description": "Correo electrónico de un cliente del cliente",
+						"maxLength": 128,
+						"type": "string",
+						"pattern": "(.*)?"
+					},
+					"isActive": {
+						"description": "Confirma si un usuario es cliente o no del banco",
+						"type": "boolean"
+					}
+				},
+				"description": "Objeto que contiene la información básica de un cliente en QFlow",
+				"required": ["identification", "firstName", "lastName", "isActive", "email"],
+				"type": "object"
+			},
+			"generalError": {
+				"description": "Contiene una respuesta de error cuando esta se presenta.",
+				"type": "object",
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/status"
+					},
+					"message": {
+						"$ref": "#/components/schemas/message"
+					},
+					"data": {
+						"description": "Información adicional que confirma el error",
+						"type": "string",
+						"maxLength": 600,
+						"minLength": 0,
+						"pattern": "(.*)?"
+					}
+				},
+				"additionalProperties": false
+			},
+			"customerResponse": {
+				"description": "Contiene una respuesta de error cuando esta se presenta.",
+				"type": "object",
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/status"
+					},
+					"message": {
+						"$ref": "#/components/schemas/message"
+					},
+					"data": {
+						"$ref": "#/components/schemas/customer"
+					}
+				},
+				"additionalProperties": false
+			},
+			"dataCancelAppointmentResponse": {
+				"description": "Respuesta cuando una cita es cancelada.",
+				"type": "object",
+				"properties": {
+					"result": {
+						"type": "string",
+						"description": "respuesta de servicio"
+					}
+				},
+				"additionalProperties": false
+			},
+			"customerCancelAppointmentResponse": {
+				"description": "Respuesta cuando una cita es cancelada.",
+				"type": "object",
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/status"
+					},
+					"message": {
+						"$ref": "#/components/schemas/message"
+					},
+					"data": {
+						"$ref": "#/components/schemas/dataCancelAppointmentResponse"
+					}
+				},
+				"additionalProperties": false
+			},
+			"BodyCancelAppointmenyRequest": {
+				"description": "Body de request para cancelar cita.",
+				"type": "object",
+				"properties": {
+					"cancelReasonId": {
+						"type": "number",
+						"description": "Id Cancelacion"
+					},
+					"customerId": {
+						"type": "number",
+						"description": "Id Cliente"
+					},
+					"dateAndTime": {
+						"type": "string",
+						"description": "Fecha Actual"
+					},
+					"processId": {
+						"type": "number",
+						"description": "Id de Proceso"
+					},
+					"serviceId": {
+						"type": "number",
+						"description": "Id de Servicio"
+					}
+				},
+				"additionalProperties": false
+			},
+			"customerCancelShiftResponse": {
+				"description": "Respuesta cuando un turno es cancelado.",
+				"type": "object",
+				"properties": {
+					"canceled": {
+						"type": "boolean",
+						"description": "indica si el turno fue cancelado."
+					},
+					"message": {
+						"type": "number",
+						"description": "Descripcion de respuesta del servicio."
+					}
+				},
+				"additionalProperties": false
+			},
+			"BodyRescheduleAppointmentRequest": {
+				"description": "Body de request para reprogramar cita.",
+				"type": "object",
+				"properties": {
+					"canal": {
+						"type": "string",
+						"description": "Canal de la cita"
+					},
+					"cancelationReasonId": {
+						"type": "number",
+						"description": "Id razon de cancelacion"
+					},
+					"cellphone": {
+						"type": "string",
+						"description": "Numero telefonico"
+					},
+					"dateAndTime": {
+						"type": "string",
+						"description": "Fecha"
+					},
+					"originalProcessId": {
+						"type": "number",
+						"description": "Id de cita a reprogramar"
+					},
+					"serviceProfileId": {
+						"type": "number",
+						"description": "Id de servicio a reprogramar"
+					},
+					"subject": {
+						"type": "string",
+						"description": "Tema"
+					},
+					"unitId": {
+						"type": "number",
+						"description": "Id de proceso activo"
+					}
+				}
+			},
+			"customerRescheduleAppointmentResponse": {
+				"description": "Respuesta al  reprogramar cita.",
+				"type": "object",
+				"properties": {
+					"canal": {
+						"type": "string",
+						"description": "Canal de la cita"
+					}
+				}
+			},
+			"productsRequest": {
+				"description": "request products.",
+				"type": "object",
+				"properties": {
+					"productNum": {
+						"type": "string",
+						"description": "numero de producto a consultar"
+					}
+				}
+			}
+		},
+		"parameters": {
+			"X-RqUID": {
+				"style": "simple",
+				"explode": false,
+				"name": "X-RqUID",
+				"description": "UUID generado. - Identificador de la transacción",
+				"schema": {
+					"maxLength": 36,
+					"pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+					"type": "string",
+					"example": "bb82a9cd-076e-4f69-9d6f-d7b0681a0346"
+				},
+				"in": "header",
+				"required": true
+			},
+			"X-CustIdentNum": {
+				"style": "simple",
+				"explode": false,
+				"name": "X-CustIdentNum",
+				"description": "Número de documento del cliente",
+				"schema": {
+					"type": "string",
+					"pattern": "(.*)?",
+					"maxLength": 32,
+					"minLength": 0,
+					"example": "1016034547"
+				},
+				"in": "header",
+				"required": true
+			},
+			"X-CustIdentType": {
+				"style": "simple",
+				"explode": false,
+				"name": "X-CustIdentType",
+				"description": "Tipo de documento del cliente",
+				"schema": {
+					"$ref": "#/components/schemas/documentType"
+				},
+				"in": "header",
+				"required": true
+			},
+			"X-Name": {
+				"style": "simple",
+				"explode": false,
+				"name": "X-Name",
+				"description": "Nombre de la aplicación que consume el recurso",
+				"schema": {
+					"type": "string",
+					"enum": [
+						"TarjetaDeCredito",
+						"CuentaDeAhorros",
+						"Libranzas",
+						"Vivienda",
+						"Seguros",
+						"Crediservice",
+						"ADN",
+						"BancaVirtual",
+						"BancaMovil",
+						"CDT",
+						"Postventa",
+						"Vehiculos",
+						"Pymes",
+						"Adquirencia"
+					],
+					"example": "BancaMovil"
+				},
+				"in": "header",
+				"required": true
+			},
+			"X-Channel": {
+				"style": "simple",
+				"explode": false,
+				"name": "X-Channel",
+				"description": "Canal que consume el servicio",
+				"schema": {
+					"enum": [
+						"Web",
+						"Banca Movil",
+						"Banca Virtual",
+						"Aliado",
+						"Fuerza Movil",
+						"Oficina",
+						"Microfinanzas"
+					],
+					"example": "Banca Movil",
+					"type": "string"
+				},
+				"in": "header",
+				"required": true
+			},
+			"X-IPAddr": {
+				"style": "simple",
+				"explode": false,
+				"name": "X-IPAddr",
+				"description": "Dirección IP del dispositivo desde donde se inicia la transacción Formato IPV4",
+				"schema": {
+					"maxLength": 15,
+					"minLength": 7,
+					"pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+					"type": "string",
+					"example": "160.80.70.123"
+				},
+				"in": "header",
+				"required": true
+			},
+			"customerId": {
+				"name": "customerId",
+				"description": "Id del usuario",
+				"schema": {
+					"type": "string"
+				},
+				"in": "query",
+				"required": true
+			},
+			"officeId": {
+				"name": "officeId",
+				"description": "Id de la oficina",
+				"schema": {
+					"type": "string"
+				},
+				"in": "query",
+				"required": true
+			},
+			"serviceId": {
+				"name": "serviceId",
+				"description": "Id del servicio",
+				"schema": {
+					"type": "string"
+				},
+				"in": "query",
+				"required": true
+			},
+			"officeType": {
+				"name": "officeType",
+				"description": "Tipo de oficina",
+				"schema": {
+					"type": "string"
+				},
+				"in": "query",
+				"required": true
+			},
+			"idProcess": {
+				"name": "idProcess",
+				"description": "Id del proceso",
+				"schema": {
+					"type": "string"
+				},
+				"in": "query",
+				"required": true
+			},
+			"idCalendar": {
+				"name": "idCalendar",
+				"description": "Id del calendario",
+				"schema": {
+					"type": "string"
+				},
+				"in": "query",
+				"required": true
+			},
+			"longitude": {
+				"name": "longitude",
+				"description": "Longitud ubicacion oficina",
+				"schema": {
+					"type": "string"
+				},
+				"in": "query",
+				"required": true
+			},
+			"latitude": {
+				"name": "latitude",
+				"description": "Latitud, ubicacion oficina",
+				"schema": {
+					"type": "string"
+				},
+				"in": "query",
+				"required": true
+			},
+			"radio": {
+				"name": "radio",
+				"description": "Radio, ubicacion oficina",
+				"schema": {
+					"type": "string"
+				},
+				"in": "query",
+				"required": true
+			}
+		},
+		"securitySchemes": {
+			"api_key": {
+				"type": "apiKey",
+				"name": "x-api-key",
+				"in": "header"
+			}
+		}
+	},
+	"security": [
+		{
+			"api_key": []
+		}
+	],
+	"x-amazon-apigateway-request-validators": {
+		"Validar cuerpo, parámetros de cadena de consulta y encabezados": {
+			"validateRequestParameters": true,
+			"validateRequestBody": true
+		}
+	}
+}

@@ -1,0 +1,653 @@
+{
+	"uuid": "b0c3d394-c467-41ba-b825-07d37e3bc2fc",
+	"lastMigration": 19,
+	"name": "Qflow",
+	"endpointPrefix": "",
+	"latency": 0,
+	"port": 9001,
+	"hostname": "0.0.0.0",
+	"routes": [
+		{
+			"uuid": "3dd69836-d453-4e43-95cb-4caa51a1874a",
+			"documentation": "",
+			"method": "get",
+			"endpoint": "customer/v2/personal/2/123456/BancaVirtual",
+			"responses": [
+				{
+					"uuid": "0604e355-24a5-4104-b590-1278f199cf7e",
+					"body": "{\n  \"codigoEstado\": 0,\n  \"cut\": null,\n  \"data\": {\n    \"active\": true,\n    \"customProperties\": null,\n    \"customerIdTypeId\": 2,\n    \"customerIdTypeName\": \"Cédula de Ciudadanía\",\n    \"customerLevelId\": 2,\n    \"customerLevelName\": \"2 Cliente Cluster2\",\n    \"description\": null,\n    \"dob\": \"0001-01-03T05:00:00.000+0000\",\n    \"eMail\": \"stevenrodrod@gmail.com\",\n    \"extRef\": \"123456\",\n    \"firstName\": \"Fulanito\",\n    \"id\": 4404,\n    \"isCustomerGroup\": false,\n    \"isMemberOfGroups\": false,\n    \"languageCode\": \"es\",\n    \"lastName\": \"D\",\n    \"name\": \"D Fulanito\",\n    \"notes\": \"\",\n    \"partOfQapp\": false,\n    \"personalId\": \"123456\",\n    \"pictureAttachmentId\": 0,\n    \"sex\": \"MALE\",\n    \"telNumber1\": \"\",\n    \"telNumber2\": \"\"\n  },\n  \"descripcionEstado\": \"Consulta Exitosa\"\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "ce6bfb95-ef6a-471e-88cb-20ffa6f24aec",
+					"body": "{\n  \"timestamp\": \"2022-05-04T20:12:17.850+0000\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: \\\"A\\\"\",\n  \"path\": \"/customer/personal/A/1014214295\"\n}",
+					"latency": 0,
+					"statusCode": 400,
+					"label": "Bad request Document",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "f34ea92f-dabd-4bd0-9e7d-8af232ce8c7d",
+					"body": "{\n    \"codigoEstado\": 500,\n    \"cut\": \"20320ZZZZZ0000DOF72429102020112026fc26b\",\n    \"data\": null,\n    \"descripcionEstado\": \"Error general en el consumo del servicio cache de qflow.\"\n}",
+					"latency": 0,
+					"statusCode": 500,
+					"label": "Error interno QFlow",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "5cd1e773-1146-4b5a-84ca-78aca6d3717c",
+					"body": "{\n  \"codigoEstado\": 0,\n  \"descripcionEstado\": \"Registro no encontrado\",\n  \"cut\": null,\n  \"data\": null\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "Not registry found",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": true
+		},
+		{
+			"uuid": "9d8d31d9-f0ee-4fcb-b326-8020d088ef73",
+			"documentation": "",
+			"method": "get",
+			"endpoint": "serviciosasesores/asesoresbyparametria/Asesoria",
+			"responses": [
+				{
+					"uuid": "fa44c118-6db3-469c-a569-df4aae2ef8da",
+					"body": "{\n    \"cut\": null,\n    \"data\": [\n        {\n            \"_id\": \"5d57384551b2f57d610b689f\",\n            \"descripcion\": \"Consignaciones, transferencias, pagos.\",\n            \"estado\": false,\n            \"icono\": \"icono_transacciones.svg\",\n            \"mixto\": true,\n            \"orden\": 1,\n            \"parametriaCita\": [\n                {\n                    \"_id\": null,\n                    \"perfilServicio\": 11\n                }\n            ],\n            \"parametriaTurno\": [\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": -1,\n                    \"perfilServicio\": [\n                        15,\n                        3\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 0,\n                    \"perfilServicio\": [\n                        5,\n                        24,\n                        37,\n                        31\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 1,\n                    \"perfilServicio\": [\n                        15,\n                        3,\n                        38,\n                        32\n                    ]\n                },\n                {                    \"_id\": null,\n                    \"customerLeveId\": 2,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 3,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 4,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 5,\n                    \"perfilServicio\": [\n                        15,\n                        3\n                    ]\n                }\n            ],\n            \"plataforma\": true,\n            \"subtitulo\": \"caja1\",\n            \"tipoTramite\": \"Caja1\",\n            \"titulo\": \"Operaciones en\"\n        },\n        {\n            \"_id\": \"5d57384551b2f57d610b689f\",\n            \"descripcion\": \"Consignaciones, transferencias, pagos.\",\n            \"estado\": false,\n            \"icono\": \"icono_transacciones.svg\",\n            \"mixto\": true,\n            \"orden\": 1,\n            \"parametriaCita\": [\n                {\n                    \"_id\": null,\n                    \"perfilServicio\": 11\n                }\n            ],\n            \"parametriaTurno\": [\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": -1,\n                    \"perfilServicio\": [\n                        15,\n                        3\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 0,\n                    \"perfilServicio\": [\n                        5,\n                        24,\n                        37,\n                        31\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 1,\n                    \"perfilServicio\": [\n                        15,\n                        3,\n                        38,\n                        32\n                    ]\n                },\n                {                    \"_id\": null,\n                    \"customerLeveId\": 2,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 3,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 4,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 5,\n                    \"perfilServicio\": [\n                        15,\n                        3\n                    ]\n                }\n            ],\n            \"plataforma\": true,\n            \"subtitulo\": \"caja2\",\n            \"tipoTramite\": \"Caja2\",\n            \"titulo\": \"Operaciones en\"\n        },\n        {\n            \"_id\": \"5d57384551b2f57d610b689f\",\n            \"descripcion\": \"Consignaciones, transferencias, pagos.\",\n            \"estado\": false,\n            \"icono\": \"icono_transacciones.svg\",\n            \"mixto\": true,\n            \"orden\": 1,\n            \"parametriaCita\": [\n                {\n                    \"_id\": null,\n                    \"perfilServicio\": 11\n                }\n            ],\n            \"parametriaTurno\": [\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": -1,\n                    \"perfilServicio\": [\n                        15,\n                        3\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 0,\n                    \"perfilServicio\": [\n                        5,\n                        24,\n                        37,\n                        31\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 1,\n                    \"perfilServicio\": [\n                        15,\n                        3,\n                        38,\n                        32\n                    ]\n                },\n                {                    \"_id\": null,\n                    \"customerLeveId\": 2,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 3,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 4,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 5,\n                    \"perfilServicio\": [\n                        15,\n                        3\n                    ]\n                }\n            ],\n            \"plataforma\": true,\n            \"subtitulo\": \"caja3\",\n            \"tipoTramite\": \"Caja3\",\n            \"titulo\": \"Operaciones en\"\n        }\n    ],\n    \"descripcion\": \"Transacci\\u00f3n exitosa\",\n    \"estado\": 0\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "f16ee7d6-ab6a-47c8-a10a-fa4c0b6aff7c",
+					"body": "{\n  \"timestamp\": \"2022-05-04T20:12:17.850+0000\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: \\\"A\\\"\",\n  \"path\": \"/customer/personal/A/1014214295\"\n}",
+					"latency": 0,
+					"statusCode": 400,
+					"label": "Bad Request",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "61a29c05-a8a4-4ca1-bc9b-39f16dc684d7",
+					"body": "{\n    \"codigoEstado\": 500,\n    \"cut\": \"20320ZZZZZ0000DOF72429102020112026fc26b\",\n    \"data\": null,\n    \"descripcionEstado\": \"Error general en el consumo del servicio cache de qflow.\"\n}",
+					"latency": 0,
+					"statusCode": 500,
+					"label": "Error Internal Qflow",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "33e11137-28f1-4466-b413-b000216c09de",
+					"body": "{\n  \"codigoEstado\": 0,\n  \"descripcionEstado\": \"Registro no encontrado\",\n  \"cut\": null,\n  \"data\": null\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "Not Registry found",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": true
+		},
+		{
+			"uuid": "ea36fc63-ba24-44b1-9800-4bf70c4d5303",
+			"documentation": "",
+			"method": "get",
+			"endpoint": "serviciosasesores/asesoresbyparametria/Caja",
+			"responses": [
+				{
+					"uuid": "2290199b-73d4-45aa-852e-3a6bbe2b5462",
+					"body": "{\n    \"cut\": null,\n    \"data\": [\n        {\n            \"_id\": \"5d57384551b2f57d610b689f\",\n            \"descripcion\": \"Consignaciones, transferencias, pagos.\",\n            \"estado\": false,\n            \"icono\": \"icono_transacciones.svg\",\n            \"mixto\": true,\n            \"orden\": 1,\n            \"parametriaCita\": [\n                {\n                    \"_id\": null,\n                    \"perfilServicio\": 11\n                }\n            ],\n            \"parametriaTurno\": [\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": -1,\n                    \"perfilServicio\": [\n                        15,\n                        3\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 0,\n                    \"perfilServicio\": [\n                        5,\n                        24,\n                        37,\n                        31\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 1,\n                    \"perfilServicio\": [\n                        15,\n                        3,\n                        38,\n                        32\n                    ]\n                },\n                {                    \"_id\": null,\n                    \"customerLeveId\": 2,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 3,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 4,\n                    \"perfilServicio\": [\n                        4\n                    ]\n                },\n                {\n                    \"_id\": null,\n                    \"customerLeveId\": 5,\n                    \"perfilServicio\": [\n                        15,\n                        3\n                    ]\n                }\n            ],\n            \"plataforma\": true,\n            \"subtitulo\": \"caja\",\n            \"tipoTramite\": \"Caja\",\n            \"titulo\": \"Operaciones en\"\n        }\n    ],\n    \"descripcion\": \"Transacci\\u00f3n exitosa\",\n    \"estado\": 0\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "d5a70ab2-9650-444e-ae99-5d5b67a40b11",
+					"body": "{\n  \"timestamp\": \"2022-05-04T20:12:17.850+0000\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: \\\"A\\\"\",\n  \"path\": \"/customer/personal/A/1014214295\"\n}",
+					"latency": 0,
+					"statusCode": 400,
+					"label": "Bad Request",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "cbfc9bc1-76e4-4329-82d1-46e9eb8062ac",
+					"body": "{\n    \"codigoEstado\": 500,\n    \"cut\": \"20320ZZZZZ0000DOF72429102020112026fc26b\",\n    \"data\": null,\n    \"descripcionEstado\": \"Error general en el consumo del servicio cache de qflow.\"\n}",
+					"latency": 0,
+					"statusCode": 500,
+					"label": "Error Internal Qflow",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "5ff1694b-d1c3-4b46-89b9-332f43b0f92f",
+					"body": "{\n  \"codigoEstado\": 0,\n  \"descripcionEstado\": \"Registro no encontrado\",\n  \"cut\": null,\n  \"data\": null\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "Not Registry found",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": true
+		},
+		{
+			"uuid": "181a7ea9-e3af-4903-a4eb-949f3d456f06",
+			"documentation": "",
+			"method": "get",
+			"endpoint": "wsrestconsultarfechacitas/citas/getfechas",
+			"responses": [
+				{
+					"uuid": "23849dd9-3dde-426b-b5e9-de09c2a7a1f9",
+					"body": "{\n    \"codigoEstado\": 0,\n    \"cut\": null,\n    \"data\": [\n            {\n                \"calendarDate\": \"2022-05-20\",\n                \"dayOfWeek\": \"Viernes\",\n                \"id\": 11026,\n                \"month\": \"Mayo\",\n                \"status\": \"Active\"\n            },\n            {\n                \"calendarDate\": \"2022-05-21\",\n                \"dayOfWeek\": \"Sábado\",\n                \"id\": null,\n                \"month\": \"Mayo\",\n                \"status\": null\n            },\n            {\n                \"calendarDate\": \"2022-05-22\",\n                \"dayOfWeek\": \"Domingo\",\n                \"id\": null,\n                \"month\": \"Mayo\",\n                \"status\": null\n            },\n            {\n                \"calendarDate\": \"2022-05-23\",\n                \"dayOfWeek\": \"Lunes\",\n                \"id\": 11053,\n                \"month\": \"Mayo\",\n                \"status\": \"Active\"\n            },\n            {\n                \"calendarDate\": \"2022-05-24\",\n                \"dayOfWeek\": \"Martes\",\n                \"id\": 11058,\n                \"month\": \"Mayo\",\n                \"status\": \"Active\"\n            },\n            {\n                \"calendarDate\": \"2022-05-25\",\n                \"dayOfWeek\": \"Miércoles\",\n                \"id\": 11063,\n                \"month\": \"Mayo\",\n                \"status\": \"Active\"\n            },\n            {\n                \"calendarDate\": \"2022-05-26\",\n                \"dayOfWeek\": \"Jueves\",\n                \"id\": 11073,\n                \"month\": \"Mayo\",\n                \"status\": \"Active\"\n            },\n            {\n                \"calendarDate\": \"2022-05-27\",\n                \"dayOfWeek\": \"Viernes\",\n                \"id\": 11083,\n                \"month\": \"Mayo\",\n                \"status\": \"Active\"\n            },\n            {\n                \"calendarDate\": \"2022-05-28\",\n                \"dayOfWeek\": \"Sábado\",\n                \"id\": null,\n                \"month\": \"Mayo\",\n                \"status\": null\n            },\n            {\n                \"calendarDate\": \"2022-05-29\",\n                \"dayOfWeek\": \"Domingo\",\n                \"id\": null,\n                \"month\": \"Mayo\",\n                \"status\": null\n            },\n            {\n                \"calendarDate\": \"2022-05-30\",\n                \"dayOfWeek\": \"Lunes\",\n                \"id\": null,\n                \"month\": \"Mayo\",\n                \"status\": null\n            }\n        ],\n    \"descripcionEstado\": \"Consulta Exitosa\"\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "971f4888-fc50-4f5a-b39e-f661f08f0d13",
+					"body": "{\n  \"timestamp\": \"2022-05-04T20:12:17.850+0000\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: \\\"A\\\"\",\n  \"path\": \"/customer/personal/A/1014214295\"\n}",
+					"latency": 0,
+					"statusCode": 400,
+					"label": "Bad Request",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "7fd7e0b7-6779-495b-a75b-48888bdc4637",
+					"body": "{\n    \"codigoEstado\": 500,\n    \"cut\": \"20320ZZZZZ0000DOF72429102020112026fc26b\",\n    \"data\": null,\n    \"descripcionEstado\": \"Error general en el consumo del servicio cache de qflow.\"\n}",
+					"latency": 0,
+					"statusCode": 500,
+					"label": "Error Internal Qflow",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "eb17fbb2-e7e5-4893-95d2-b2cbeb4ff04c",
+					"body": "{\n  \"codigoEstado\": 0,\n  \"descripcionEstado\": \"Registro no encontrado\",\n  \"cut\": null,\n  \"data\": null\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "Not Registry found",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": true
+		},
+		{
+			"uuid": "01b8f1d3-5a2f-437a-9fc8-0873a65988f5",
+			"documentation": "",
+			"method": "get",
+			"endpoint": "VCI/Calendar/getSlotsGrouped",
+			"responses": [
+				{
+					"uuid": "408e3c2d-b977-4df0-bf8c-3eb735bc4b11",
+					"body": "{\n    \"codigoEstado\": 0,\n    \"cut\": null,\n    \"data\": {\n        \"groupCalendarSlots\": [\n            {\n                \"groupDuration\": 60,\n                \"groupEndTime\": 600,\n                \"groupEntTimeDisplay\": \"10:00 AM\",\n                \"groupStartTime\": 540,\n                \"groupStartTimeDisplay\": \"9:00 AM\"\n            },\n            {\n                \"groupDuration\": 60,\n                \"groupEndTime\": 660,\n                \"groupEntTimeDisplay\": \"11:00 AM\",\n                \"groupStartTime\": 600,\n                \"groupStartTimeDisplay\": \"10:00 AM\"\n            },\n            {\n                \"groupDuration\": 60,\n                \"groupEndTime\": 720,\n                \"groupEntTimeDisplay\": \"12:00 PM\",\n                \"groupStartTime\": 660,\n                \"groupStartTimeDisplay\": \"11:00 AM\"\n            },\n            {\n                \"groupDuration\": 60,\n                \"groupEndTime\": 780,\n                \"groupEntTimeDisplay\": \"1:00 PM\",\n                \"groupStartTime\": 720,\n                \"groupStartTimeDisplay\": \"12:00 PM\"\n            },\n            {\n                \"groupDuration\": 60,\n                \"groupEndTime\": 840,\n                \"groupEntTimeDisplay\": \"2:00 PM\",\n                \"groupStartTime\": 780,\n                \"groupStartTimeDisplay\": \"1:00 PM\"\n            },\n            {\n                \"groupDuration\": 60,\n                \"groupEndTime\": 900,\n                \"groupEntTimeDisplay\": \"3:00 PM\",\n                \"groupStartTime\": 840,\n                \"groupStartTimeDisplay\": \"2:00 PM\"\n            },\n            {\n                \"groupDuration\": 60,\n                \"groupEndTime\": 960,\n                \"groupEntTimeDisplay\": \"4:00 PM\",\n                \"groupStartTime\": 900,\n                \"groupStartTimeDisplay\": \"3:00 PM\"\n            }\n        ]\n    },\n    \"descripcionEstado\": \"Consulta Exitosa\"\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "e7a3531c-d506-43a7-8462-64aff575c008",
+					"body": "{\n  \"timestamp\": \"2022-05-04T20:12:17.850+0000\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: \\\"A\\\"\",\n  \"path\": \"/customer/personal/A/1014214295\"\n}",
+					"latency": 0,
+					"statusCode": 400,
+					"label": "Bad Request",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "e20a97e0-43f7-4ecf-a4f0-107a6328a57a",
+					"body": "{\n    \"codigoEstado\": 500,\n    \"cut\": \"20320ZZZZZ0000DOF72429102020112026fc26b\",\n    \"data\": null,\n    \"descripcionEstado\": \"Error general en el consumo del servicio cache de qflow.\"\n}",
+					"latency": 0,
+					"statusCode": 500,
+					"label": "Error Internal Qflow",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "f234865e-9671-4d48-aeba-f7a0db6c42b0",
+					"body": "{\n  \"codigoEstado\": 0,\n  \"descripcionEstado\": \"Registro no encontrado\",\n  \"cut\": null,\n  \"data\": null\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "Not Registry found",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": true
+		},
+		{
+			"uuid": "8ac46876-c075-40da-95bb-1dfeeffb9a77",
+			"documentation": "",
+			"method": "get",
+			"endpoint": "consultaoficinas/getOficinasByRadio/-74.0698907/4.6236913/10000/true",
+			"responses": [
+				{
+					"uuid": "e0500758-84ef-4461-ae32-4638f959ee6b",
+					"body": "{\n    \"cut\": \"20315ZZZZZ0000DOF724291020200908391a82b\",\n    \"descripcion\": \"Transacci\\u00f3n exitosa\",\n    \"estado\": 0,\n    \"lstOficinas\": [\n        {\n            \"abreviado\": null,\n            \"accesoInternet\": null,\n            \"atencionPersonasDiscapacitadas\": null,\n            \"cajeroAutomatico\": \"1\",\n            \"calendar\": false,\n            \"cantidadFilas\": null,\n            \"codigo\": \"0043\",\n            \"codigoDane\": null,\n            \"codigoOficina\": \"0043\",\n            \"departamento\": \"11 {Bogot\\u00c3\\u00a1, D. C.}\",\n            \"depositario\": null,\n            \"detalleUltimaNovedad\": \"99 {Ninguna}\",\n            \"direccion\": \"Carrera 7 N\\u00c2\\u00b0  40-70\",\n            \"estadoPuntoOperacion\": \"1 {Abierta}\",\n            \"fechaActualizado\": \"2020-10-29T09:00:36.8\",\n            \"fechaApertura\": \"1972-01-05T00:00:00\",\n            \"fechaUltimaNovedad\": \"\",\n            \"filaClientes\": null,\n            \"filaPreferentePlus\": null,\n            \"filaUsuarios\": null,\n            \"fromHour1\": null,\n            \"fromHour2\": null,\n            \"horarioOficina\": null,\n            \"horarios\": [\n                {\n                    \"condicionJornada\": \"1 {Normal}\",\n                    \"descripcion\": \"0043 {Universidad Javeriana}\",\n                    \"diaSemana\": \"V {Viernes}\",\n                    \"finPrimeraJornada\": \"1200 {12:00 p.m.}\",\n                    \"finPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"finSegundaJornada\": \"1530 {03:30 p.m.}\",\n                    \"finSegundaJornadaAdic\": \"9999 {NA}\",\n                    \"inicioPrimeraJornada\": \"0900 {09:00 a.m.}\",\n                    \"inicioPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"inicioSegundaJornada\": \"1200 {12:00 p.m.}\",\n                    \"inicioSegundaJornadaAdic\": \"9999 {NA}\"\n                },\n                {\n                    \"condicionJornada\": \"1 {Normal}\",\n                    \"descripcion\": \"0043 {Universidad Javeriana}\",\n                    \"diaSemana\": \"J {Jueves}\",\n                    \"finPrimeraJornada\": \"1200 {12:00 p.m.}\",\n                    \"finPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"finSegundaJornada\": \"1530 {03:30 p.m.}\",\n                    \"finSegundaJornadaAdic\": \"9999 {NA}\",\n                    \"inicioPrimeraJornada\": \"0900 {09:00 a.m.}\",\n                    \"inicioPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"inicioSegundaJornada\": \"1200 {12:00 p.m.}\",\n                    \"inicioSegundaJornadaAdic\": \"9999 {NA}\"\n                },\n                {\n                    \"condicionJornada\": \"1 {Normal}\",\n                    \"descripcion\": \"0043 {Universidad Javeriana}\",\n                    \"diaSemana\": \"C {Miercoles}\",\n                    \"finPrimeraJornada\": \"1200 {12:00 p.m.}\",\n                    \"finPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"finSegundaJornada\": \"1530 {03:30 p.m.}\",\n                    \"finSegundaJornadaAdic\": \"9999 {NA}\",\n                    \"inicioPrimeraJornada\": \"0900 {09:00 a.m.}\",\n                    \"inicioPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"inicioSegundaJornada\": \"1200 {12:00 p.m.}\",\n                    \"inicioSegundaJornadaAdic\": \"9999 {NA}\"\n                },\n                {\n                    \"condicionJornada\": \"1 {Normal}\",\n                    \"descripcion\": \"0043 {Universidad Javeriana}\",\n                    \"diaSemana\": \"M {Martes}\",\n                    \"finPrimeraJornada\": \"1200 {12:00 p.m.}\",\n                    \"finPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"finSegundaJornada\": \"1530 {03:30 p.m.}\",\n                    \"finSegundaJornadaAdic\": \"9999 {NA}\",\n                    \"inicioPrimeraJornada\": \"0900 {09:00 a.m.}\",\n                    \"inicioPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"inicioSegundaJornada\": \"1200 {12:00 p.m.}\",\n                    \"inicioSegundaJornadaAdic\": \"9999 {NA}\"\n                },\n                {\n                    \"condicionJornada\": \"1 {Normal}\",\n                    \"descripcion\": \"0043 {Universidad Javeriana}\",\n                    \"diaSemana\": \"L {Lunes}\",\n                    \"finPrimeraJornada\": \"1200 {12:00 p.m.}\",\n                    \"finPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"finSegundaJornada\": \"1530 {03:30 p.m.}\",\n                    \"finSegundaJornadaAdic\": \"9999 {NA}\",\n                    \"inicioPrimeraJornada\": \"0900 {09:00 a.m.}\",\n                    \"inicioPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"inicioSegundaJornada\": \"1200 {12:00 p.m.}\",\n                    \"inicioSegundaJornadaAdic\": \"9999 {NA}\"\n                }\n            ],\n            \"ipCanalesSofia\": null,\n            \"isOpen\": false,\n            \"kioskos\": null,\n            \"location\": [\n                -74.0650088,\n                4.6283342\n            ],\n            \"migradoTurnosCitas\": false,\n            \"multifuncionales\": \"0\",\n            \"municipio\": \"11001000 {Bogot\\u00c3\\u00a1, D.C.}\",\n            \"nombreOficina\": \"Universidad Javeriana\",\n            \"oId\": {\n                \"date\": \"2020-10-20T21:40:45.000+00:00\",\n                \"timestamp\": 1603230045\n            },\n            \"oficinaAdscrita\": null,\n            \"region\": \"1 {Bogot\\u00c3\\u00a1 Sur}\",\n            \"servicioPrEstadoHorarioAdicional\": null,\n            \"servilinea\": \"1 {TRUE}\",\n            \"subClaseCanal\": \"10102 {Tradicional}\",\n            \"telefonoGerente\": null,\n            \"telefonoJDS\": null,\n            \"telefonoOficina\": \"3820000\",\n            \"tickect\": true,\n            \"tipoCiudad\": \"1 {Principal}\",\n            \"tipoOficina\": \"\",\n            \"toHour1\": null,\n            \"toHour2\": null,\n            \"unitId\": 32,\n            \"usoSuelo\": null,\n            \"workday\": null,\n            \"working\": null,\n            \"zonaComercial\": \"18 {Teusaquillo}\"\n        },\n        {\n            \"abreviado\": null,\n            \"accesoInternet\": null,\n            \"atencionPersonasDiscapacitadas\": null,\n            \"cajeroAutomatico\": \"3\",\n            \"calendar\": true,\n            \"cantidadFilas\": null,\n            \"codigo\": \"0000\",\n            \"codigoDane\": null,\n            \"codigoOficina\": \"0000\",\n            \"departamento\": \"11 {Bogot\\u00c3\\u00a1, D. C.}\",\n            \"depositario\": null,\n            \"detalleUltimaNovedad\": \"99 {Ninguna}\",\n            \"direccion\": \"Calle 36 N\\u00c2\\u00b0 7 - 47\",\n            \"estadoPuntoOperacion\": \"1 {Abierta}\",\n            \"fechaActualizado\": \"2020-10-29T09:00:38.022\",\n            \"fechaApertura\": \"1964-08-27T00:00:00\",\n            \"fechaUltimaNovedad\": \"\",\n            \"filaClientes\": null,\n            \"filaPreferentePlus\": null,\n            \"filaUsuarios\": null,\n            \"fromHour1\": \"09:00\",\n            \"fromHour2\": \"00:00\",\n            \"horarioOficina\": null,\n            \"horarios\": [\n                {\n                    \"condicionJornada\": \"1 {Normal}\",\n                    \"descripcion\": \"0000 {Oficina Principal}\",\n                    \"diaSemana\": \"V {Viernes}\",\n                    \"finPrimeraJornada\": \"1200 {12:00 p.m.}\",\n                    \"finPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"finSegundaJornada\": \"1530 {03:30 p.m.}\",\n                    \"finSegundaJornadaAdic\": \"9999 {NA}\",\n                    \"inicioPrimeraJornada\": \"0900 {09:00 a.m.}\",\n                    \"inicioPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"inicioSegundaJornada\": \"1200 {12:00 p.m.}\",\n                    \"inicioSegundaJornadaAdic\": \"9999 {NA}\"\n                },\n                {\n                    \"condicionJornada\": \"1 {Normal}\",\n                    \"descripcion\": \"0000 {Oficina Principal}\",\n                    \"diaSemana\": \"J {Jueves}\",\n                    \"finPrimeraJornada\": \"1200 {12:00 p.m.}\",\n                    \"finPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"finSegundaJornada\": \"1530 {03:30 p.m.}\",\n                    \"finSegundaJornadaAdic\": \"9999 {NA}\",\n                    \"inicioPrimeraJornada\": \"0900 {09:00 a.m.}\",\n                    \"inicioPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"inicioSegundaJornada\": \"1200 {12:00 p.m.}\",\n                    \"inicioSegundaJornadaAdic\": \"9999 {NA}\"\n                },\n                {\n                    \"condicionJornada\": \"1 {Normal}\",\n                    \"descripcion\": \"0000 {Oficina Principal}\",\n                    \"diaSemana\": \"C {Miercoles}\",\n                    \"finPrimeraJornada\": \"1200 {12:00 p.m.}\",\n                    \"finPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"finSegundaJornada\": \"1530 {03:30 p.m.}\",\n                    \"finSegundaJornadaAdic\": \"9999 {NA}\",\n                    \"inicioPrimeraJornada\": \"0900 {09:00 a.m.}\",\n                    \"inicioPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"inicioSegundaJornada\": \"1200 {12:00 p.m.}\",\n                    \"inicioSegundaJornadaAdic\": \"9999 {NA}\"\n                },\n                {\n                    \"condicionJornada\": \"1 {Normal}\",\n                    \"descripcion\": \"0000 {Oficina Principal}\",\n                    \"diaSemana\": \"M {Martes}\",\n                    \"finPrimeraJornada\": \"1200 {12:00 p.m.}\",\n                    \"finPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"finSegundaJornada\": \"1530 {03:30 p.m.}\",\n                    \"finSegundaJornadaAdic\": \"9999 {NA}\",\n                    \"inicioPrimeraJornada\": \"0900 {09:00 a.m.}\",\n                    \"inicioPrimeraJornadaAdic\": \"9999 {NA}\",\n                    \"inicioSegundaJornada\": \"1200 {12:00 p.m.}\",\n                    \"inicioSegundaJornadaAdic\": \"9999 {NA}\"\n                }\n            ],\n            \"ipCanalesSofia\": null,\n            \"isOpen\": true,\n            \"kioskos\": null,\n            \"location\": [\n                -74.0672571,\n                4.6236367\n            ],\n            \"migradoTurnosCitas\": false,\n            \"multifuncionales\": \"0\",\n            \"municipio\": \"11001000 {Bogot\\u00c3\\u00a1, D.C.}\",\n            \"nombreOficina\": \"Oficina Principal\",\n            \"oId\": {\n                \"date\": \"2020-10-20T21:40:46.000+00:00\",\n                \"timestamp\": 1603230046\n            },\n            \"oficinaAdscrita\": null,\n            \"region\": \"1 {Bogot\\u00c3\\u00a1 Sur}\",\n            \"servicioPrEstadoHorarioAdicional\": null,\n            \"servilinea\": \"1 {TRUE}\",\n            \"subClaseCanal\": \"10102 {Tradicional}\",\n            \"telefonoGerente\": null,\n            \"telefonoJDS\": null,\n            \"telefonoOficina\": \"3820000\",\n            \"tickect\": true,\n            \"tipoCiudad\": \"1 {Principal}\",\n            \"tipoOficina\": \"Mixta\",\n            \"toHour1\": \"15:30\",\n            \"toHour2\": \"00:00\",\n            \"unitId\": 9,\n            \"usoSuelo\": null,\n            \"workday\": true,\n            \"working\": false,\n            \"zonaComercial\": \"18 {Teusaquillo}\"\n        }\n    ]\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "b5ff45f3-ce10-4ad2-aa1c-8ad966e72e36",
+					"body": "{\n  \"timestamp\": \"2022-05-04T20:12:17.850+0000\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: \\\"A\\\"\",\n  \"path\": \"/customer/personal/A/1014214295\"\n}",
+					"latency": 0,
+					"statusCode": 400,
+					"label": "Bad Request",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "c163b43f-6619-4220-9904-5c42ec4b14d6",
+					"body": "{\n    \"codigoEstado\": 500,\n    \"cut\": \"20320ZZZZZ0000DOF72429102020112026fc26b\",\n    \"data\": null,\n    \"descripcionEstado\": \"Error general en el consumo del servicio cache de qflow.\"\n}",
+					"latency": 0,
+					"statusCode": 500,
+					"label": "Error Internal Qflow",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "46b35669-17d2-404b-ae5e-2cdc1b094bc3",
+					"body": "{\n  \"codigoEstado\": 0,\n  \"descripcionEstado\": \"Registro no encontrado\",\n  \"cut\": null,\n  \"data\": null\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "No Registry found",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": true
+		},
+		{
+			"uuid": "4910d3d1-f715-42fa-97a0-fa8ca2df2aa7",
+			"documentation": "",
+			"method": "post",
+			"endpoint": "service/v2/enqueue",
+			"responses": [
+				{
+					"uuid": "c33db90e-3fc0-4006-b355-5712dc3ce857",
+					"body": "{\n   \"codigoEstado\": 0,\n   \"descripcionEstado\": \"Consulta Exitosa\",\n   \"cut\": null,\n   \"data\": {\n       \"caseId\": 15454,\n       \"customerId\": 4404,\n       \"enqueueDate\": \"2022-04-06T19:31:18.570+0000\",\n       \"languageCode\": \"en\",\n       \"notes\": \"Turno Digital\",\n       \"queuePosition\": 1,\n       \"serviceId\": 26,\n       \"serviceName\": \"Asesoría Trámites Alta\",\n       \"subject\": \"Ayuda con tus productos\",\n       \"ticketId\": 9,\n       \"qcode\": \"D\",\n       \"qnumber\": 1\n   }\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "833dc4dc-823c-4874-9559-8941928b36b8",
+					"body": "{\n  \"codigoEstado\": 0,\n  \"descripcionEstado\": \"Registro no encontrado\",\n  \"cut\": null,\n  \"data\": null\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "No registry found",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "4bb4f117-2160-4615-a43e-d6b56f99e205",
+					"body": "{\n  \"timestamp\": \"2022-05-04T20:12:17.850+0000\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: \\\"A\\\"\",\n  \"path\": \"/customer/personal/A/1014214295\"\n}",
+					"latency": 0,
+					"statusCode": 400,
+					"label": "Bad Request",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "e32283b9-0117-4b6f-99c4-a36d3b333911",
+					"body": "{\n    \"codigoEstado\": 500,\n    \"cut\": \"20320ZZZZZ0000DOF72429102020112026fc26b\",\n    \"data\": null,\n    \"descripcionEstado\": \"Error general en el consumo del servicio cache de qflow.\"\n}",
+					"latency": 0,
+					"statusCode": 500,
+					"label": "Error Internal Qflow",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": true
+		},
+		{
+			"uuid": "f2ab1722-16d3-4b8e-85e3-987e41c367f6",
+			"documentation": "",
+			"method": "post",
+			"endpoint": "service/v2/setappoinment",
+			"responses": [
+				{
+					"uuid": "e5fed2b6-5fa3-48e1-a2fa-90750fdb0099",
+					"body": "{\n \"codigoEstado\": 0,\n \"descripcionEstado\": \"Consulta Exitosa\",\n \"cut\": null,\n \"data\": {\n   \"fechaCita\": \"2022-04-07T09:00:00\",\n   \"save\": true\n }\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "6cb05809-565e-41e0-b329-93b3e46e2315",
+					"body": "{\n  \"codigoEstado\": 0,\n  \"descripcionEstado\": \"Registro no encontrado\",\n  \"cut\": null,\n  \"data\": null\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "No Registry found",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "b01d506c-6b22-45d3-9acc-1f9b354a4357",
+					"body": "{\n  \"timestamp\": \"2022-05-04T20:12:17.850+0000\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: \\\"A\\\"\",\n  \"path\": \"/customer/personal/A/1014214295\"\n}",
+					"latency": 0,
+					"statusCode": 400,
+					"label": "Bad Request",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				},
+				{
+					"uuid": "5a2e8234-556f-4fad-bb09-693f14331a70",
+					"body": "{\n    \"codigoEstado\": 500,\n    \"cut\": \"20320ZZZZZ0000DOF72429102020112026fc26b\",\n    \"data\": null,\n    \"descripcionEstado\": \"Error general en el consumo del servicio cache de qflow.\"\n}",
+					"latency": 0,
+					"statusCode": 500,
+					"label": "Error Internal Qflow",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": true
+		},
+		{
+			"uuid": "4aef873c-e9b1-42a6-b7b6-b3790362f067",
+			"documentation": "",
+			"method": "get",
+			"endpoint": "customer/getactiveprocesses/4404",
+			"responses": [
+				{
+					"uuid": "cf7d1aba-673d-4d53-ad6d-45515d1976e5",
+					"body": "{\n   \"codigoEstado\":0,\n   \"descripcionEstado\":\"Consulta Exitosa\",\n   \"cut\":null,\n   \"data\":[\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15149,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2548,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":139,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":33049825,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15129,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2022-07-01T09:00:00.503\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"f73a6128-3f74-410d-a918-0ae797d6908a\",\n         \"unitName\":\"0015 - Centro Comercial Calima\",\n         \"unitId\":17,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15171,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2555,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":139,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":32243424,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15151,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2021-06-10T17:00:00.523\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"6388748d-93a8-4c89-99c7-d6bb0bddc7da\",\n         \"unitName\":\"0015 - Centro Comercial Calima\",\n         \"unitId\":17,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15257,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":0,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":86,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":20844608,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15237,\n         \"recentNotes\":\"Turno Virtual\",\n         \"startDate\":\"2021-10-20T15:05:17.05\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"b46bb587-b30b-4b8d-bc92-dfd3ad4bdd49\",\n         \"unitName\":\"0015 - Centro Comercial Calima\",\n         \"unitId\":17,\n         \"serviceProfileId\":20,\n         \"subject\":\"nada\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15259,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":0,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":86,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":20842582,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15239,\n         \"recentNotes\":\"Turno Virtual\",\n         \"startDate\":\"2022-10-20T15:39:03.88\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"3a4521c5-b391-46c4-b914-0eaf46c89a28\",\n         \"unitName\":\"0015 - Centro Comercial Calima\",\n         \"unitId\":17,\n         \"serviceProfileId\":20,\n         \"subject\":\"nada\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15264,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":0,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":8,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":20775420,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15244,\n         \"recentNotes\":\"Turno Virtual\",\n         \"startDate\":\"2022-06-19T10:18:25.323\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"1174bd3c-2d21-4633-ae1b-2bf4264a94a2\",\n         \"unitName\":\"0033 - Andes\",\n         \"unitId\":6,\n         \"serviceProfileId\":20,\n         \"subject\":\"nada\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15283,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":0,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":1,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":20680083,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15263,\n         \"recentNotes\":\"Turno Virtual\",\n         \"startDate\":\"2021-10-22T12:47:22.52\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"ffb5d92b-0f45-4108-b569-5f85b556f77f\",\n         \"unitName\":\"0033 - Andes\",\n         \"unitId\":6,\n         \"serviceProfileId\":25,\n         \"subject\":\"nada\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15284,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":0,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":86,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":20674927,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15264,\n         \"recentNotes\":\"Turno Virtual\",\n         \"startDate\":\"2021-10-22T14:13:18.04\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"252bf42f-ce5e-46c5-9975-f5c74b08677b\",\n         \"unitName\":\"0015 - Centro Comercial Calima\",\n         \"unitId\":17,\n         \"serviceProfileId\":20,\n         \"subject\":\"nada\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15306,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2633,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":140,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":20089824,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15286,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2021-10-29T09:00:00.103\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"ebf60fd7-f0bc-45ce-bdec-825da639141e\",\n         \"unitName\":\"0033 - Andes\",\n         \"unitId\":6,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15313,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":0,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":1,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":20087964,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15293,\n         \"recentNotes\":\"Turno Virtual\",\n         \"startDate\":\"2021-10-29T09:16:01.79\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"f45cee8b-bb57-4a02-87c3-f481c5fdd7aa\",\n         \"unitName\":\"0033 - Andes\",\n         \"unitId\":6,\n         \"serviceProfileId\":25,\n         \"subject\":\"nada\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15314,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2634,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":140,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":20087485,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15294,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2021-10-29T09:30:00.053\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"947bc45a-04d7-4683-8053-6288b183ef22\",\n         \"unitName\":\"0033 - Andes\",\n         \"unitId\":6,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15305,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2632,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":139,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":19830625,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15285,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2021-11-01T09:00:00.077\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"947f16b0-640b-4b73-ba8c-2d7c242d8f1e\",\n         \"unitName\":\"0015 - Centro Comercial Calima\",\n         \"unitId\":17,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15315,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2635,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":140,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":19828645,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15295,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2021-11-01T09:30:00.863\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"c708ab06-eeb3-4d21-8913-2fb353cfa480\",\n         \"unitName\":\"0033 - Andes\",\n         \"unitId\":6,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15320,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2636,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":139,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":19128445,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15300,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2021-11-09T12:00:00.85\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"9eb22f82-3b06-41b8-8b25-808363587df2\",\n         \"unitName\":\"0015 - Centro Comercial Calima\",\n         \"unitId\":17,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15339,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2638,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":139,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":18448223,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15319,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2021-11-17T09:00:00.577\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"ef807ed7-4d52-4a86-ad1d-d3a09d93eea3\",\n         \"unitName\":\"0015 - Centro Comercial Calima\",\n         \"unitId\":17,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15347,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2643,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":140,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":17407823,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15327,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2021-11-29T10:00:00.26\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"59d1b996-382c-4e1b-b9cf-7b42863df8a7\",\n         \"unitName\":\"0033 - Andes\",\n         \"unitId\":6,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15356,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":0,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":8,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":14991156,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15336,\n         \"recentNotes\":\"Turno Virtual\",\n         \"startDate\":\"2021-12-27T09:02:49.277\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"c286d93b-825c-49cf-bff9-7cadb2a69086\",\n         \"unitName\":\"0033 - Andes\",\n         \"unitId\":6,\n         \"serviceProfileId\":20,\n         \"subject\":\"nada\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15454,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":0,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":26,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":6331447,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15434,\n         \"recentNotes\":\"Turno Digital\",\n         \"startDate\":\"2022-04-06T14:31:18.57\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"a3101de8-2bab-45fc-9a46-7177370a4d4f\",\n         \"unitName\":\"0000 - Oficina Principal\",\n         \"unitId\":9,\n         \"serviceProfileId\":19,\n         \"subject\":\"Ayuda con tus productos\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15455,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":0,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":26,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":6331003,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15435,\n         \"recentNotes\":\"Turno digital\",\n         \"startDate\":\"2022-04-06T14:38:42.447\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"9c49a00d-aa9d-45c6-b7ad-8bdaac5ade7b\",\n         \"unitName\":\"0000 - Oficina Principal\",\n         \"unitId\":9,\n         \"serviceProfileId\":19,\n         \"subject\":\"Ayuda con tus productos\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15456,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2711,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":70,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":6323424,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15436,\n         \"recentNotes\":\"lABORATORIO\",\n         \"startDate\":\"2022-04-06T17:00:00.643\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"690794a1-970c-4326-b34a-61c2d643f7d3\",\n         \"unitName\":\"0000 - Oficina Principal\",\n         \"unitId\":9,\n         \"serviceProfileId\":11,\n         \"subject\":\"DOCUMENTOS\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15457,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2712,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":70,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":6265645,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15437,\n         \"recentNotes\":\"Cita Digital\",\n         \"startDate\":\"2022-04-07T09:00:00.9\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"66bf3162-da8f-42d9-ac4b-a42733e96e74\",\n         \"unitName\":\"0000 - Oficina Principal\",\n         \"unitId\":9,\n         \"serviceProfileId\":11,\n         \"subject\":\"Ayuda con tus productos\"\n      },\n      {\n         \"absolutePriority\":0,\n         \"assignedToUserId\":0,\n         \"caseId\":15461,\n         \"caseStatus\":\"Active\",\n         \"currentActOptionId\":0,\n         \"currentAppointmentId\":2715,\n         \"currentEntityStatus\":\"Waiting\",\n         \"currentServiceId\":139,\n         \"currentUserId\":0,\n         \"documentationType\":\"OutOfBandDocumentation\",\n         \"documentedByUserId\":0,\n         \"elapsedTime\":5803224,\n         \"entityId\":\"123456\",\n         \"notificationChannelid\":0,\n         \"priorityLevel\":0,\n         \"procedureStatus\":\"Unknonw\",\n         \"processId\":15441,\n         \"recentNotes\":\"Dashboard\",\n         \"startDate\":\"2022-04-12T17:30:00.42\",\n         \"transferredFromserviceId\":0,\n         \"processGUID\":\"0dd0f17a-9436-4326-8838-bbd065a90ec3\",\n         \"unitName\":\"0015 - Centro Comercial Calima\",\n         \"unitId\":17,\n         \"serviceProfileId\":11,\n         \"subject\":\"\"\n      }\n   ]\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": false
+		},
+		{
+			"uuid": "4273e798-e0db-4fcd-ae2b-bea49a9e1967",
+			"documentation": "",
+			"method": "get",
+			"endpoint": "process/cancelappointment",
+			"responses": [
+				{
+					"uuid": "4a585374-f377-4867-a229-9bcbfd3a1c83",
+					"body": "{\n \"codigoEstado\": 0,\n \"descripcionEstado\": \"Consulta Exitosa\",\n \"cut\": null,\n \"data\": {\n \"delegateId\": 0,\n \"processId\": 15238,\n \"userId\": 1,\n \"scriptResult\": \"Cita cancelada correctamente\"\n }\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": false
+		},
+		{
+			"uuid": "69e34341-583e-47db-81f4-f6ebc0702c53",
+			"documentation": "",
+			"method": "get",
+			"endpoint": "process/cancelcase/123123",
+			"responses": [
+				{
+					"uuid": "0fb5bdf0-9cdb-4a6e-ac65-85449535be0e",
+					"body": "{\n \"codigoEstado\": 0,\n \"data\": {\n \"canceled\": true,\n \"message\": \"Caso cancelado con éxito \"\n },\n \"descripcionEstado\": \"Consulta Exitosa\"\n}",
+					"latency": 0,
+					"statusCode": 200,
+					"label": "",
+					"headers": [],
+					"filePath": "",
+					"sendFileAsBody": false,
+					"rules": [],
+					"rulesOperator": "OR",
+					"disableTemplating": false,
+					"fallbackTo404": false
+				}
+			],
+			"enabled": true,
+			"randomResponse": false,
+			"sequentialResponse": false
+		}
+	],
+	"proxyMode": false,
+	"proxyHost": "",
+	"proxyRemovePrefix": false,
+	"tlsOptions": {
+		"enabled": false,
+		"type": "CERT",
+		"pfxPath": "",
+		"certPath": "",
+		"keyPath": "",
+		"caPath": "",
+		"passphrase": ""
+	},
+	"cors": true,
+	"headers": [
+		{
+			"key": "Content-Type",
+			"value": "application/json"
+		}
+	],
+	"proxyReqHeaders": [
+		{
+			"key": "",
+			"value": ""
+		}
+	],
+	"proxyResHeaders": [
+		{
+			"key": "",
+			"value": ""
+		}
+	]
+}

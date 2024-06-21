@@ -1,0 +1,75 @@
+{
+	"source": "mockoon:1.17.0",
+	"data": [
+		{
+			"type": "environment",
+			"item": {
+				"uuid": "b0c3d394-c467-41ba-b825-07d37e3bc2fc",
+				"lastMigration": 19,
+				"name": "Qflow",
+				"endpointPrefix": "",
+				"latency": 0,
+				"port": 9001,
+				"hostname": "0.0.0.0",
+				"routes": [
+					{
+						"uuid": "3dd69836-d453-4e43-95cb-4caa51a1874a",
+						"documentation": "",
+						"method": "get",
+						"endpoint": "customer/personal/1/123456",
+						"responses": [
+							{
+								"uuid": "0604e355-24a5-4104-b590-1278f199cf7e",
+								"body": "{\n  \"codigoEstado\": 0,\n  \"cut\": null,\n  \"data\": {\n    \"active\": true,\n    \"customProperties\": null,\n    \"customerIdTypeId\": 2,\n    \"customerIdTypeName\": \"Cédula de Ciudadanía\",\n    \"customerLevelId\": 2,\n    \"customerLevelName\": \"2 Cliente Cluster2\",\n    \"description\": null,\n    \"dob\": \"0001-01-03T05:00:00.000+0000\",\n    \"eMail\": \"\",\n    \"extRef\": \"123456\",\n    \"firstName\": \"Fulanito\",\n    \"id\": 4404,\n    \"isCustomerGroup\": false,\n    \"isMemberOfGroups\": false,\n    \"languageCode\": \"es\",\n    \"lastName\": \"D\",\n    \"name\": \"D Fulanito\",\n    \"notes\": \"\",\n    \"partOfQapp\": false,\n    \"personalId\": \"123456\",\n    \"pictureAttachmentId\": 0,\n    \"sex\": \"MALE\",\n    \"telNumber1\": \"\",\n    \"telNumber2\": \"\"\n  },\n  \"descripcionEstado\": \"Consulta Exitosa\"\n}",
+								"latency": 0,
+								"statusCode": 200,
+								"label": "",
+								"headers": [],
+								"filePath": "",
+								"sendFileAsBody": false,
+								"rules": [],
+								"rulesOperator": "OR",
+								"disableTemplating": false,
+								"fallbackTo404": false
+							}
+						],
+						"enabled": true,
+						"randomResponse": false,
+						"sequentialResponse": false
+					}
+				],
+				"proxyMode": false,
+				"proxyHost": "",
+				"proxyRemovePrefix": false,
+				"tlsOptions": {
+					"enabled": false,
+					"type": "CERT",
+					"pfxPath": "",
+					"certPath": "",
+					"keyPath": "",
+					"caPath": "",
+					"passphrase": ""
+				},
+				"cors": true,
+				"headers": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"proxyReqHeaders": [
+					{
+						"key": "",
+						"value": ""
+					}
+				],
+				"proxyResHeaders": [
+					{
+						"key": "",
+						"value": ""
+					}
+				]
+			}
+		}
+	]
+}
